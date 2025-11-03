@@ -1,1 +1,1 @@
-{"repository": "https://github.com/khlif-and/Chronicles", "branch": "master", "commits": "", "file": "py", "starting_date": "2026, 2, 22", "ending_date": "2026, 4, 26"}
+{"repository": "https://github.com/khlif-and/Chronicles", "branch": "master", "commits": "", "file": "java", "starting_date": "2025, 11, 3", "ending_date": "2026, 5, 25", "pr_enabled": false, "pr_count": 5, "pr_merge_ratio": 0.0, "pr_delay_min_seconds": 300, "pr_delay_max_seconds": 1800, "pr_workspace": "pr_workspace"}
