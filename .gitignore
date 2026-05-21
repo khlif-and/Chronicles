@@ -44,3 +44,6 @@ venv.bak/
 
 # node-modules global
 node_modules/
+
+# PR generator workspace
+pr_workspace/

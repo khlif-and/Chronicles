@@ -22,3 +22,4 @@ from .comment_builder import CommentBuilder
 from .file_builder import FileBuilder
 from .date_changer import DateChanger
 from .git_builder import GitBuilder
+from .pr_builder import PRBuilder
