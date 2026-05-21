@@ -3,7 +3,7 @@ GitHub Filler - Fake Commit Generator for GitHub
 
 Copyright (C) 2024-2024 Liam Arguedas
 
-This file is part of GitHub Filler, a free CLI tool based on the original Commitify 
+This file is part of GitHub Filler, a free CLI tool based on the original Commitify
 designed to generate fake commits for GitHub repositories.
 
 GitHub Filler is distributed under the terms of the GNU General Public License (GPL),
@@ -25,6 +25,7 @@ import statistics
 from build import GithubFillerConfig
 from src import GitBuilder
 from src import DateChanger
+from src import PRBuilder
 
 ROOT_PATH = Path(__file__).parents[0]
 FILES_DIR = ROOT_PATH / "files"
@@ -72,6 +73,23 @@ def main():
             print(f"Aprox. estimated time to finish: {approx_time} minutes")
 
         day_counter += 1
+
+    if params.get("pr_enabled"):
+        run_pr_generation(params)
+
+
+def run_pr_generation(params):
+    print("--- Starting PR generation ---")
+    workspace_path = ROOT_PATH / params["pr_workspace"]
+    pr_builder = PRBuilder(
+        workspace=workspace_path,
+        repository=params["repository"],
+        base_branch=params["branch"],
+        merge_ratio=params["pr_merge_ratio"],
+        delay_min_seconds=params["pr_delay_min_seconds"],
+        delay_max_seconds=params["pr_delay_max_seconds"],
+    )
+    pr_builder.run(pr_count=params["pr_count"])
 
 
 def read_date(date: str):
